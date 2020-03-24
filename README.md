@@ -1,7 +1,6 @@
 # Portfolio
 
-Portfolio Site in making during quarantine :)
-
+Portfolio Site, done in quarantine.
 
 ## References
 * [colorlib](https://colorlib.com/)
