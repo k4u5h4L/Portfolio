@@ -886,8 +886,8 @@ h1 {
 .logo > img {
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    height: 82px;
-    width: 82px;
+    height: 100px;
+    width: 200px;
 }
 
 .logo > img:hover {
