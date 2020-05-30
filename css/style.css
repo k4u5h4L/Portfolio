@@ -183,23 +183,7 @@ template {
     display: none;
 }
 
-@font-face {
-    font-family: "Josefin Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local(""), url("../assets/font/JosefinSans-Regular.woff2") format("woff2"),
-        url("../assets/font/JosefinSans-Regular.woff") format("woff");
-}
-
-@font-face {
-    font-family: "Josefin Sans";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local(""), url("../assets/font/JosefinSans-Bold.woff2") format("woff2"),
-        url("../assets/font/JosefinSans-Bold.woff") format("woff");
-}
+/*#######################################*/
 
 body,
 html {
@@ -208,40 +192,20 @@ html {
     background: transparent;
     color: #fff;
     overflow-x: hidden;
-    font-family: "Dosis", "Josefin Sans", sans-serif;
+    font-family: "Dosis", sans-serif;
     font-weight: 400;
 }
-
-/* #circle-cursor {
-    width: 20px;
-    height: 20px;
-    border: 4px solid #e3e3e3;
-    background: rgba(255, 255, 255, 0.1);
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    display: none;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    z-index: 10;
-} */
 
 h1 {
     margin: 0;
 }
 
-.waves {
+/* .waves {
     height: 100%;
     width: 100%;
     z-index: 0;
     position: absolute;
-}
+} */
 
 .container {
     height: 100vh;
@@ -250,7 +214,7 @@ h1 {
     position: relative;
 }
 
-.error-page {
+/* .error-page {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -264,9 +228,9 @@ h1 {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-}
+} */
 
-.center {
+/* .center {
     -webkit-transition: 0.4s;
     transition: 0.4s;
     height: 80%;
@@ -286,7 +250,7 @@ h1 {
 .center > h1 {
     padding-right: 70px;
     margin-bottom: 20px;
-}
+} */
 
 @media all and (max-width: 768px) {
     .center {
@@ -307,7 +271,7 @@ h1 {
     background: transparent;
 }
 
-.skewed {
+/* .skewed {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -317,9 +281,9 @@ h1 {
     border-style: solid;
     border-width: 0 0 100px 100vw;
     border-color: transparent transparent #1b498c transparent;
-}
+} */
 
-@media all and (max-width: 1200px) {
+/* @media all and (max-width: 1200px) {
     .skewed {
         border-width: 0 0 95px 100vw;
     }
@@ -335,13 +299,13 @@ h1 {
     .skewed {
         border-width: 0 0 70px 100vw;
     }
-}
+} */
 
 .translucent {
     opacity: 0.6;
 }
 
-.scroll-indicator {
+/* .scroll-indicator {
     width: 56px;
     height: 56px;
     position: absolute;
@@ -375,7 +339,7 @@ h1 {
 
 .scroll-indicator:hover {
     opacity: 1;
-}
+} */
 
 @-webkit-keyframes fadeIn {
     0% {
@@ -783,7 +747,7 @@ h1 {
     }
 }
 
-.languages {
+/* .languages {
     -webkit-transition: 0.4s;
     transition: 0.4s;
     margin-right: 70px;
@@ -839,9 +803,9 @@ h1 {
         border-radius: 3px;
         width: 25px;
     }
-}
+} */
 
-.language-selector {
+/* .language-selector {
     position: absolute;
     height: 19px;
     width: 40px;
@@ -872,7 +836,7 @@ h1 {
     .language-selector.french {
         left: 54px;
     }
-}
+} */
 
 .logo {
     -ms-flex-item-align: start;
@@ -886,8 +850,8 @@ h1 {
 .logo > img {
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
-    height: 100px;
-    width: 200px;
+    height: 10vh;
+    width: 16vw;
 }
 
 .logo > img:hover {
@@ -897,15 +861,15 @@ h1 {
 
 @media all and (max-height: 595px) and (orientation: landscape) {
     .logo > img {
-        height: 70px;
-        width: 70px;
+        height: 6vh;
+        width: 16vh;
     }
 }
 
 @media all and (max-width: 992px) {
     .logo > img {
-        height: 75px;
-        width: 75px;
+        height: 6vh;
+        width: 16vh;
     }
 }
 
@@ -915,8 +879,8 @@ h1 {
     }
 
     .logo > img {
-        height: 65px;
-        width: 65px;
+        height: 6vh;
+        width: 16vh;
     }
 }
 
@@ -926,8 +890,8 @@ h1 {
     }
 
     .logo > img {
-        height: 46px;
-        width: 46px;
+        height: 6vh;
+        width: 16vh;
     }
 }
 
@@ -995,7 +959,7 @@ h1 {
     color: #ff85ea;
 }
 
-.projects-page {
+/* .projects-page {
     background: -webkit-gradient(linear, left top, left bottom, from(#1b498c), to(#0e3162));
     background: linear-gradient(to bottom, #1b498c, #0e3162);
     display: -webkit-box;
@@ -1085,9 +1049,9 @@ h1 {
     .projects-container > div {
         padding: 50px 40px 0 40px;
     }
-}
+} */
 
-.project {
+/* .project {
     text-decoration: none;
     color: #fff;
     padding: 0 25px 15px 25px;
@@ -1197,4 +1161,4 @@ h1 {
     background: -webkit-gradient(linear, right top, left bottom, from(#fa9576), to(#f35c41));
     background: linear-gradient(to bottom left, #fa9576, #f35c41);
     color: #fff;
-}
+} */
