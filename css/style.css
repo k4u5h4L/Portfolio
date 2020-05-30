@@ -329,7 +329,7 @@ h1 {
 }
 
 .about {
-    margin-left: 70px;
+    margin-left: 10px;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     padding-right: 50px;
@@ -624,7 +624,7 @@ h1 {
 .logo {
     -ms-flex-item-align: start;
     align-self: flex-start;
-    margin-left: 70px;
+    margin-left: 10px;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     margin-right: 30px;
@@ -731,7 +731,7 @@ h1 {
 }
 
 .company {
-    color: #ff6be6;
+    color: #0373fc;
     text-decoration: none;
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -739,5 +739,5 @@ h1 {
 }
 
 .company:hover {
-    color: #ff85ea;
+    color: #fc3d03;
 }
