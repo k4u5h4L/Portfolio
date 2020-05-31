@@ -1,4 +1,7 @@
+// jshint esversion: 8
+
 // Three JS Template
+
 let renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = false;
@@ -8,11 +11,16 @@ renderer.shadowMap.needsUpdate = true;
 document.body.appendChild(renderer.domElement);
 window.addEventListener("resize", onWindowResize, false);
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
-let camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 1, 500);
+let camera = new THREE.PerspectiveCamera(
+  35,
+  window.innerWidth / window.innerHeight,
+  1,
+  500
+);
 let scene = new THREE.Scene();
 let cameraRange = 3;
 
@@ -28,20 +36,23 @@ let particularGruop = new THREE.Object3D();
 let modularGruop = new THREE.Object3D();
 
 function generateParticle(num, amp = 2) {
-    let gmaterial = new THREE.MeshPhysicalMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+  let gmaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xffffff,
+    side: THREE.DoubleSide,
+  });
 
-    let gparticular = new THREE.CircleGeometry(0.2, 5);
+  let gparticular = new THREE.CircleGeometry(0.2, 5);
 
-    for (let i = 1; i < num; i++) {
-        let pscale = 0.001 + Math.abs(mathRandom(0.03));
-        let particular = new THREE.Mesh(gparticular, gmaterial);
-        particular.position.set(mathRandom(amp), mathRandom(amp), mathRandom(amp));
-        particular.rotation.set(mathRandom(), mathRandom(), mathRandom());
-        particular.scale.set(pscale, pscale, pscale);
-        particular.speedValue = mathRandom(1);
+  for (let i = 1; i < num; i++) {
+    let pscale = 0.001 + Math.abs(mathRandom(0.03));
+    let particular = new THREE.Mesh(gparticular, gmaterial);
+    particular.position.set(mathRandom(amp), mathRandom(amp), mathRandom(amp));
+    particular.rotation.set(mathRandom(), mathRandom(), mathRandom());
+    particular.scale.set(pscale, pscale, pscale);
+    particular.speedValue = mathRandom(1);
 
-        particularGruop.add(particular);
-    }
+    particularGruop.add(particular);
+  }
 }
 generateParticle(200, 2);
 
@@ -50,54 +61,59 @@ scene.add(modularGruop);
 scene.add(sceneGruop);
 
 function mathRandom(num = 1) {
-    let setNumber = -Math.random() * num + Math.random() * num;
-    return setNumber;
+  let setNumber = -Math.random() * num + Math.random() * num;
+  return setNumber;
 }
 
 //------------------------------------------------------------- INIT
 function init() {
-    for (let i = 0; i < 30; i++) {
-        let geometry = new THREE.IcosahedronGeometry(1);
-        let material = new THREE.MeshStandardMaterial({
-            shading: THREE.FlatShading,
-            color: 0x111111,
-            transparent: false,
-            opacity: 1,
-            wireframe: false,
-        });
-        let cube = new THREE.Mesh(geometry, material);
-        cube.speedRotation = Math.random() * 0.1;
-        cube.positionX = mathRandom();
-        cube.positionY = mathRandom();
-        cube.positionZ = mathRandom();
-        cube.castShadow = true;
-        cube.receiveShadow = true;
+  for (let i = 0; i < 30; i++) {
+    let geometry = new THREE.IcosahedronGeometry(1);
+    let material = new THREE.MeshStandardMaterial({
+      shading: THREE.FlatShading,
+      color: 0x111111,
+      transparent: false,
+      opacity: 1,
+      wireframe: false,
+    });
+    let cube = new THREE.Mesh(geometry, material);
+    cube.speedRotation = Math.random() * 0.1;
+    cube.positionX = mathRandom();
+    cube.positionY = mathRandom();
+    cube.positionZ = mathRandom();
+    cube.castShadow = true;
+    cube.receiveShadow = true;
 
-        let newScaleValue = mathRandom(0.3);
+    let newScaleValue = mathRandom(0.3);
 
-        cube.scale.set(newScaleValue, newScaleValue, newScaleValue);
-        //---
-        cube.rotation.x = mathRandom((180 * Math.PI) / 180);
-        cube.rotation.y = mathRandom((180 * Math.PI) / 180);
-        cube.rotation.z = mathRandom((180 * Math.PI) / 180);
-        //
-        cube.position.set(cube.positionX, cube.positionY, cube.positionZ);
-        modularGruop.add(cube);
-    }
+    cube.scale.set(newScaleValue, newScaleValue, newScaleValue);
+    //---
+    cube.rotation.x = mathRandom((180 * Math.PI) / 180);
+    cube.rotation.y = mathRandom((180 * Math.PI) / 180);
+    cube.rotation.z = mathRandom((180 * Math.PI) / 180);
+    //
+    cube.position.set(cube.positionX, cube.positionY, cube.positionZ);
+    modularGruop.add(cube);
+  }
 }
 
 //------------------------------------------------------------- CAMERA
 camera.position.set(0, 0, cameraRange);
 let cameraValue = false;
 function cameraSet() {
-    if (!cameraValue) {
-        TweenMax.to(camera.position, 1, { z: cameraRange, ease: Power4.easeInOut });
-        cameraValue = true;
-    } else {
-        TweenMax.to(camera.position, 1, { z: cameraRange, x: 0, y: 0, ease: Power4.easeInOut });
-        INTERSECTED = null;
-        cameraValue = false;
-    }
+  if (!cameraValue) {
+    TweenMax.to(camera.position, 1, { z: cameraRange, ease: Power4.easeInOut });
+    cameraValue = true;
+  } else {
+    TweenMax.to(camera.position, 1, {
+      z: cameraRange,
+      x: 0,
+      y: 0,
+      ease: Power4.easeInOut,
+    });
+    INTERSECTED = null;
+    cameraValue = false;
+  }
 }
 
 //------------------------------------------------------------- SCENE
@@ -120,7 +136,12 @@ scene.add(lightBack);
 
 let rectSize = 2;
 let intensity = 100;
-let rectLight = new THREE.RectAreaLight(0x0fffff, intensity, rectSize, rectSize);
+let rectLight = new THREE.RectAreaLight(
+  0x0fffff,
+  intensity,
+  rectSize,
+  rectSize
+);
 rectLight.position.set(0, 0, 1);
 rectLight.lookAt(0, 0, 0);
 scene.add(rectLight);
@@ -131,42 +152,44 @@ rectLightHelper = new THREE.RectAreaLightHelper(rectLight);
 //------------------------------------------------------------- RAYCASTER
 let raycaster = new THREE.Raycaster();
 let mouse = new THREE.Vector2(),
-    INTERSECTED;
+  INTERSECTED;
 let intersected;
 
 function onMouseMove(event) {
-    event.preventDefault();
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  event.preventDefault();
+  mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 }
 function onMouseDown(event) {
-    event.preventDefault();
-    onMouseMove(event);
-    raycaster.setFromCamera(mouse, camera);
-    let intersected = raycaster.intersectObjects(modularGruop.children);
-    if (intersected.length > 0) {
-        cameraValue = false;
-        if (INTERSECTED != intersected[0].object) {
-            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+  event.preventDefault();
+  onMouseMove(event);
+  raycaster.setFromCamera(mouse, camera);
+  let intersected = raycaster.intersectObjects(modularGruop.children);
+  if (intersected.length > 0) {
+    cameraValue = false;
+    if (INTERSECTED != intersected[0].object) {
+      if (INTERSECTED)
+        INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
 
-            INTERSECTED = intersected[0].object;
-            INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-            INTERSECTED.material.emissive.setHex(0xffff00);
-            //INTERSECTED.material.map = null;
-            //lightBack.position.set(INTERSECTED.position.x,INTERSECTED.position.y,INTERSECTED.position.z);
+      INTERSECTED = intersected[0].object;
+      INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+      INTERSECTED.material.emissive.setHex(0xffff00);
+      //INTERSECTED.material.map = null;
+      //lightBack.position.set(INTERSECTED.position.x,INTERSECTED.position.y,INTERSECTED.position.z);
 
-            TweenMax.to(camera.position, 1, {
-                x: INTERSECTED.position.x,
-                y: INTERSECTED.position.y,
-                z: INTERSECTED.position.z + 3,
-                ease: Power2.easeInOut,
-            });
-        } else {
-            if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-            INTERSECTED = null;
-        }
+      TweenMax.to(camera.position, 1, {
+        x: INTERSECTED.position.x,
+        y: INTERSECTED.position.y,
+        z: INTERSECTED.position.z + 3,
+        ease: Power2.easeInOut,
+      });
+    } else {
+      if (INTERSECTED)
+        INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+      INTERSECTED = null;
     }
-    console.log(intersected.length);
+  }
+  console.log(intersected.length);
 }
 function onMouseUp(event) {}
 
@@ -177,35 +200,38 @@ window.addEventListener("mousemove", onMouseMove, false);
 //------------------------------------------------------------- RENDER
 let uSpeed = 0.1;
 function animate() {
-    let time = performance.now() * 0.0003;
-    requestAnimationFrame(animate);
+  let time = performance.now() * 0.0003;
+  requestAnimationFrame(animate);
+  //---
+  for (let i = 0, l = particularGruop.children.length; i < l; i++) {
+    let newObject = particularGruop.children[i];
+    newObject.rotation.x += newObject.speedValue / 10;
+    newObject.rotation.y += newObject.speedValue / 10;
+    newObject.rotation.z += newObject.speedValue / 10;
     //---
-    for (let i = 0, l = particularGruop.children.length; i < l; i++) {
-        let newObject = particularGruop.children[i];
-        newObject.rotation.x += newObject.speedValue / 10;
-        newObject.rotation.y += newObject.speedValue / 10;
-        newObject.rotation.z += newObject.speedValue / 10;
-        //---
-        //newObject.position.y = Math.sin(time) * 3;
-    }
+    //newObject.position.y = Math.sin(time) * 3;
+  }
 
-    for (let i = 0, l = modularGruop.children.length; i < l; i++) {
-        let newCubes = modularGruop.children[i];
-        newCubes.rotation.x += 0.008;
-        newCubes.rotation.y += 0.005;
-        newCubes.rotation.z += 0.003;
-        //---
-        newCubes.position.x = Math.sin(time * newCubes.positionZ) * newCubes.positionY;
-        newCubes.position.y = Math.cos(time * newCubes.positionX) * newCubes.positionZ;
-        newCubes.position.z = Math.sin(time * newCubes.positionY) * newCubes.positionX;
-    }
+  for (let i = 0, l = modularGruop.children.length; i < l; i++) {
+    let newCubes = modularGruop.children[i];
+    newCubes.rotation.x += 0.008;
+    newCubes.rotation.y += 0.005;
+    newCubes.rotation.z += 0.003;
     //---
-    particularGruop.rotation.y += 0.005;
-    //---
-    modularGruop.rotation.y -= (mouse.x * 4 + modularGruop.rotation.y) * uSpeed;
-    modularGruop.rotation.x -= (-mouse.y * 4 + modularGruop.rotation.x) * uSpeed;
-    camera.lookAt(scene.position);
-    renderer.render(scene, camera);
+    newCubes.position.x =
+      Math.sin(time * newCubes.positionZ) * newCubes.positionY;
+    newCubes.position.y =
+      Math.cos(time * newCubes.positionX) * newCubes.positionZ;
+    newCubes.position.z =
+      Math.sin(time * newCubes.positionY) * newCubes.positionX;
+  }
+  //---
+  particularGruop.rotation.y += 0.005;
+  //---
+  modularGruop.rotation.y -= (mouse.x * 4 + modularGruop.rotation.y) * uSpeed;
+  modularGruop.rotation.x -= (-mouse.y * 4 + modularGruop.rotation.x) * uSpeed;
+  camera.lookAt(scene.position);
+  renderer.render(scene, camera);
 }
 
 animate();
