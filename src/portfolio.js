@@ -19,7 +19,7 @@ const greeting = {
 const socialMediaLinks = {
     github: "https://github.com/theParanoidScripts",
     linkedin: "https://www.linkedin.com/in/kaushal-bhat-8374451a2",
-    gmail: "kaushal.bhat@yahoo.com",
+    gmail: "kaushal.v.bhat@gmail.com",
     // // gitlab: "",
     // facebook: "",
     // Instagram and Twitter are also supported in the links!

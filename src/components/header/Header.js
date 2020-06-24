@@ -35,7 +35,7 @@ function Header() {
             </li>
           } */}
                         <li>
-                            <a href="#opensource">Open Source</a>
+                            <a href="#opensource">Open-Source Projects</a>
                         </li>
                         {/* <li>
             <a href="#projects">Projects</a>
