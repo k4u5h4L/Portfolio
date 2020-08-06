@@ -11,7 +11,7 @@ Some items are changed as compared to the original repo.
 -   Clone and cd into the repo
 
 ```
-git clone https://github.com/theParanoidScripts/theParanoidScripts.github.io.git && cd theParanoidScripts.github.io
+git clone https://github.com/k4u5h4L/Portfolio.git && cd Portfolio
 ```
 
 -   Install the needed dependencies
