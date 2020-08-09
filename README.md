@@ -34,4 +34,3 @@ A server will be created at [localhost:3000](http://localhost:3000).
 
 -   Special thanks for [saadpasta](https://github.com/saadpasta/) and the contributors for this amazing website!
 
--   The original repo has GNU public liscense, hence I am legally allowed to modify the source code and use it.
